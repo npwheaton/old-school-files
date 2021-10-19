@@ -1,0 +1,16 @@
+Makefile:
+
+all: compute control run
+
+compute: ServerC.c
+	gcc -o compute ComputeProcess.c -std=gnu99
+
+control: ServerG.c
+	gcc -o control Controller.c -std=gnu99
+
+run: serverC
+	./control
+
+clean:
+	rm -f compute
+	rm -f control
